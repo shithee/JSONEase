@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en" translate="no">
+    <head>
+        <title>JSON Viewer from JSONEase ❤️</title>
+        <meta name="title" content="JSONEase - Manage JSON Better">
+        <meta http-equiv="content-type" contexnt="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="google" content="notranslate" />
+        <link rel="apple-touch-icon" sizes="180x180" href="images/logo.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="images/logo.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="images/logo.png">
+        <link rel="shortcut icon" href="images/logo.png">
+        <meta name="msapplication-TileColor" content="#2d89ef">
+        <meta name="theme-color" content="#ffffff">
+        <meta property="og:type" content="website" />
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Alegreya:wght@400;500;600&display=swap" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    </head>
+    <body data-theme="dark">
+        <div class="tof-content-wrapper">
+            <div class="tof-site-loader" style="display:none;"></div>
+            <div class="tof-toolpit left" data-text></div>
+            <div class="tof-navbar">
+                <a href="/">
+                    <div class="tof-navbar-logo">
+                        <div class="tof-navbar-logo-image inline">
+                            <img width="35" height="35" src="images/logo.png" alt="JSONEase">
+                        </div>
+                        <div class="tof-navbar-logo-name">JSONEase</div>
+                    </div>
+                </a>
+                <div class="tof-navbar-interaction">
+                    <div class="tof-navbar-lists">
+                        <li>
+                            <a href="https://github.com/shithee/JSONEase" target="_blank">
+                                <button class="tof-desk-navlist-donate">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                                    </svg>
+                                    <span>Github</span>
+                                </button>
+                            </a>
+                        </li>
+                    </div>
+                </div>
+            </div>
+            <div class="tof-tool-wrapper">
+                <div class="tof-tool-heading">JSON <span class="default-color">Viewer</span>
+                </div>
+                <div class="tof-tool-input-area f">
+                    <textarea id="tof-user-input" placeholder="Enter your JSON or press CTRL + B for sample JSON" data-role="normal"></textarea>
+                </div>
+                <br>
+                <div class="tof-tool-setting-wrapper">
+                    <button id="submit-tool" data-role="normal">View JSON Tree</button>
+                </div>
+                <div class="tof-leaderboard-affiliate hide">
+                    <div class="tof-affiliate horizontal">
+                        <div class="tof-affiliate-wrapper">
+                            <!-- <a href="https://bit.ly/tof-c-ext"> -->
+                                <div class="tof-affiliate-branding">
+                                    <div class="tof-affiliate-branding-logo">
+                                        <img src="images/json-error.png">
+                                    </div>
+                                    <div class="tof-affiliate-branding-name"></div>
+                                </div>
+                                <div class="tof-affiliate-content">
+                                    <div class="tof-affiliate-title">Both JSON are identical.</div>
+                                    <div class="tof-affiliate-des">The above given JSON both following the same structure.</div>
+                                </div>
+                            <!-- </a> -->
+                        </div>
+                    </div>
+                </div>
+                <div class="json_tree_container">
+                </div>
+            </div>
+            <div class="tof-tool-list-wrapper footer-section">
+                <div class="left-sec"> © 2023 JSONEase. All Rights Reserved. </div>
+                <div class="author"> Made with ❤️ by <a href="https://instagram.com/shitheeshh">Shitheesh</a>
+                </div>
+            </div>
+        </div>
+    </body>
+    <script type="text/javascript">
+        var Jsontree = {};
+        // container,json,Name,Prefix for JSON
+        Jsontree.create = (c, j,n,p) => {
+            let h = (!Jsontree.empty(j)) ? `
+                    <ul class="JSONtree treeCss tree">
+                        <li class="branch">
+                            <div class="treehead parenthead">
+                                ${Jsontree.expander('close')}
+                                <a class="treeHrefCss" href="#">${n}</a>
+                            </div>
+                            <ul>${Jsontree.generate(j,p)}</ul>
+                        </li>
+                    </ul>` : 
+                    `<div class="empty-tree">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M256 512c141.4 0 256-114.6 256-256S397.4 0 256 0S0 114.6 0 256S114.6 512 256 512zM216 336h24V272H216c-13.3 0-24-10.7-24-24s10.7-24 24-24h48c13.3 0 24 10.7 24 24v88h8c13.3 0 24 10.7 24 24s-10.7 24-24 24H216c-13.3 0-24-10.7-24-24s10.7-24 24-24zm40-144c-17.7 0-32-14.3-32-32s14.3-32 32-32s32 14.3 32 32s-14.3 32-32 32z"/></svg>
+                        <div class="info-tree">JSON is Empty !</div>
+                    </div>`;
+            // let tree = new DOMParser().parseFromString(h, "text/html");
+            // console.log(tree);
+            c.innerHTML = h;
+            if(!Jsontree.empty(j)){
+                for (let attrs of c.querySelectorAll(".atrs")) {
+                    // attrs.addEventListener("click", (e) => {
+                    //   let key = e.target.dataset.key;
+                    //   // setatrpop(true);
+                    //   if(key) insert_attr(key);
+                    // });
+                }
+                for (let item of c.querySelectorAll(".treehead")) {
+                    item.addEventListener("click", (e) => {
+                        let br = e.target.closest('.branch');
+                        // Determine whether show or Hide
+                        let plus = br.querySelector('svg.open-icon');
+                        let type = (Jsontree.hidden(plus)) ? 'close' : 'open';
+                        let children = br.querySelector('ul').children;
+                        for (let child of children) {
+                            child.style.display = (type == 'open') ? 'block' : 'none';
+                        }
+                        // console.log(e);
+                        
+                        if(type == 'open'){
+                            // Closing the particular Branch
+                            br.querySelector('svg.open-icon').style.display = "none";
+                            br.querySelector('svg.close-icon').style.display = "block";
+                        }else{
+                            // Opening the branch
+                            br.querySelector('svg.open-icon').style.display = "block";
+                            br.querySelector('svg.close-icon').style.display = "none";
+
+                        }
+                    });
+                }
+                c.querySelector('.parenthead').click();
+            }
+            
+        };
+
+        Jsontree.empty = (value) => {
+            return (
+                (value == null) ||
+                (value.hasOwnProperty('length') && value.length === 0) ||
+                (value.constructor === Object && Object.keys(value).length === 0)
+            );
+        }
+
+        Jsontree.xss = (str) => {
+            if(!str || (typeof str != 'string')) return str;
+            str = str.replace(/[\u00A0-\u9999<>\&]/gim, function(i) {
+              return '&#' + i.charCodeAt(0) + ';';
+            });
+            return str;
+        }
+
+        Jsontree.search = (cont,key) => {
+            if (key) {
+                key = key.toLowerCase();
+                let li = cont.querySelectorAll('li');
+                for (let list of li) {
+                    if(!list.classList.contains('branch')){
+                        let value = list.innerText.trim().toLowerCase();
+                        if (value.includes(key)) {
+                            Jsontree.display(list,'show');
+                        } else {
+                            Jsontree.display(list,'hide');
+                        }
+                    }else{
+                        Jsontree.display(list,'hide');
+                        let current_parent = list;
+                        let sublist = list.querySelectorAll('li');
+                        for (let innerlist of sublist) {
+                            if(innerlist.classList.contains('branch')){
+                                let value = innerlist.innerText.trim().toLowerCase();
+                                if (value.includes(key)) {
+                                    Jsontree.display(innerlist.querySelector('.open-icon'),'hide');
+                                    Jsontree.display(innerlist.querySelector('.close-icon'),'show');
+                                    Jsontree.display(current_parent,'show');
+                                }
+                            }else{
+                                let value = innerlist.innerText.trim().toLowerCase();
+                                if (value.includes(key)) {
+                                    Jsontree.display(current_parent,'show');
+                                }
+                            }
+                        }
+                    }
+                }
+            } else {
+                let li = cont.querySelectorAll('li');
+                for (let list of li) {
+                    Jsontree.display(list,'show');
+                    let head = list.querySelectorAll('.treehead');
+                    for (let h of head) {
+                        Jsontree.display(h.querySelector('.open-icon'),'hide');
+                        Jsontree.display(h.querySelector('.close-icon'),'show');
+                    }
+                }
+            }
+        }
+
+        Jsontree.display = (el,type) => {
+            el.style.display = (type == 'show') ? 'block' : 'none';
+        }
+
+        Jsontree.hidden = (el) => {
+            var style = window.getComputedStyle(el);
+            return (style.display === 'none');
+        }
+
+        Jsontree.generate = (j,p) => {
+            let html = '';
+            
+            if(Jsontree.empty(j)) return '';
+
+            for (let [key, value] of Object.entries(j)) {
+                key = Jsontree.xss(key);
+                value = Jsontree.xss(value);
+                let k = (p || p===0) ? `${p}.${key}` : key;
+                if(Array.isArray(value) || (value && typeof value === "object")){
+                    html += `<li class="branch" style="display:none;">
+                                <div class="treehead">
+                                    ${Jsontree.expander('close')}
+                                    <span>${key}</span>
+                                </div>
+                                <ul>${Jsontree.generate(value,k)}</ul>
+                            </li>`
+                }else{
+                    let value_type = input_type(value);
+                    html += `<li class="slectatr custom_tool_tip" style="display:none;">
+                                <span class="atrs" data-key="${k}">${key}</span>
+                                <span class="smple"><i class="treeEmptyCss ${value_type}">${value}</i></span>
+                            </li>`;
+                }
+            }
+
+            // console.log(html);
+            return html;
+        }
+
+        Jsontree.expander = (t='open') => {
+            return `
+                <svg class="close-icon" style="${(t=='open') ? '' : 'display:none;'}" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M256 512c141.4 0 256-114.6 256-256S397.4 0 256 0S0 114.6 0 256S114.6 512 256 512zM184 232H328c13.3 0 24 10.7 24 24s-10.7 24-24 24H184c-13.3 0-24-10.7-24-24s10.7-24 24-24z"/></svg>
+                <svg class="open-icon" style="${(t=='close') ? '' : 'display:none;'}" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M256 512c141.4 0 256-114.6 256-256S397.4 0 256 0S0 114.6 0 256S114.6 512 256 512zM232 344V280H168c-13.3 0-24-10.7-24-24s10.7-24 24-24h64V168c0-13.3 10.7-24 24-24s24 10.7 24 24v64h64c13.3 0 24 10.7 24 24s-10.7 24-24 24H280v64c0 13.3-10.7 24-24 24s-24-10.7-24-24z"/></svg>`;
+        }
+    </script>
+    <script type="text/javascript" src="/core.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $(document).keydown(function(e) {
+                // Check if the user pressed Ctrl (key code 17) and B (key code 66)
+                if (e.ctrlKey && e.keyCode == 66) {
+                    let el = $('#tof-user-input');
+                    let json = el.val();
+                    if(!json){
+                        // JSON is empty, so we can paste the random json and trigger click
+                        let random_json = generateRandomJSON();
+                        el.val(random_json).trigger('click');
+                    }
+                }
+            });
+            $(document).on('click','#submit-tool', function(){
+                let json = $('#tof-user-input').val();
+                let check = checkJSON(json);
+                $('.json_tree_container').hide();
+                if(check == 'invalid' || check == 'empty'){
+                    show_alert(
+                        'error',
+                        `JSON is ${check} !`,
+                        `The JSON is you have entered is ${check}, please update and try again.`
+                    );
+                }else{
+                    let cont = $('.json_tree_container')[0];
+                    $(cont).show();
+                    Jsontree.create(cont,JSON.parse(json),'JSON Tree','');
+                    Jsontree.search(cont,'');
+                    let pos = $(cont).offset().top - 20;
+                    $('html, body').animate({
+                      scrollTop: pos
+                    }, 1000);
+                }
+            });
+        });
+    </script>
+</html>
