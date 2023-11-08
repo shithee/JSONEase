@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en" translate="no">
+    <head>
+        <title>Edit JSON from JSONEase ❤️</title>
+        <meta name="title" content="JSONEase - Manage JSON Better">
+        <meta http-equiv="content-type" contexnt="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="google" content="notranslate" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/images/logo.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/images/logo.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/images/logo.png">
+        <link rel="shortcut icon" href="/images/logo.png">
+        <meta name="msapplication-TileColor" content="#2d89ef">
+        <meta name="theme-color" content="#ffffff">
+        <meta property="og:type" content="website" />
+        <link rel="stylesheet" type="text/css" href="/style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Alegreya:wght@400;500;600&display=swap" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    </head>
+    <body data-theme="dark">
+        <div class="tof-content-wrapper">
+            <div class="tof-site-loader" style="display:none;"></div>
+            <div class="tof-toolpit left" data-text></div>
+            <div class="tof-navbar">
+                <a href="/">
+                    <div class="tof-navbar-logo">
+                        <div class="tof-navbar-logo-image inline">
+                            <img width="35" height="35" src="/images/logo.png" alt="JSONEase">
+                        </div>
+                        <div class="tof-navbar-logo-name">JSONEase</div>
+                    </div>
+                </a>
+                <div class="tof-navbar-interaction">
+                    <div class="tof-navbar-lists">
+                        <li>
+                            <a href="https://github.com/shithee/JSONEase" target="_blank">
+                                <button class="tof-desk-navlist-donate">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                                    </svg>
+                                    <span>Github</span>
+                                </button>
+                            </a>
+                        </li>
+                    </div>
+                </div>
+            </div>
+            <div class="tof-tool-wrapper">
+                <div class="tof-tool-heading">JSON <span class="default-color">Find & Replace</span>
+                </div>
+                <div class="tof-tool-input-area f">
+                    <textarea id="tof-user-input" placeholder="Enter your JSON or press CTRL + B for sample JSON" data-role="normal"></textarea>
+                </div>
+                <br>
+                <div class="tof-find-option">
+                    <button data-type="string" class="selected">String</button>
+                    <button data-type="regex" class="">Regex</button>
+                </div>
+                <div class="tof-field-section ip_wrper_txt tof-input-options">
+                    <div class="tof-input-wrapper">
+                        <input id="searchString" type="text" placeholder="Find">
+                    </div>
+                    <svg class="tof-replace-icon" viewBox="0 0 122.88 104.54" width="25" height="25">
+                        <path class="cls-1" d="M53.35,15.07,48,42l-5.38-8.1C31.07,38.58,24.56,46.25,23.6,58.05c-9.52-16.64-3.74-31.55,8.32-40.29L26.43,9.49l26.91,5.58ZM71.39,0h46a5.54,5.54,0,0,1,5.53,5.53V35.9a5.56,5.56,0,0,1-5.53,5.53h-46a5.54,5.54,0,0,1-5.53-5.53V5.53A5.55,5.55,0,0,1,71.39,0ZM19.47,67.71H37.69L38,87.89l-9.78-6L19,87.74l.45-20ZM85.33,4.6h18.22l.31,20.18-9.78-6-9.19,5.82.44-20ZM5.53,63.11h46A5.55,5.55,0,0,1,57,68.64V99a5.57,5.57,0,0,1-5.53,5.52h-46A5.56,5.56,0,0,1,0,99V68.64a5.55,5.55,0,0,1,5.53-5.53ZM70.46,95.85l5.31-27L81.15,77c11.59-4.65,18.09-12.32,19.06-24.12,9.52,16.64,3.74,31.56-8.32,40.3l5.49,8.27L70.46,95.85Z"></path>
+                    </svg>
+                    <div class="tof-input-wrapper">
+                        <input id="replaceWith" type="text" placeholder="Replace With">
+                    </div>
+                </div>
+                <div class="chkbx_grp">
+                    <div class="tof-input-field">
+                        <input type="checkbox" id="replace-index" checked>
+                        <label class="checkbox" for="replace-index">Replace JSON Index</label>
+                    </div>
+                    <div class="tof-input-field">
+                        <input type="checkbox" id="replace-value"  checked>
+                        <label class="checkbox" for="replace-value">Replace JSON Values</label>
+                    </div>
+                </div>
+                <div class="tof-tool-setting-wrapper">
+                    <button id="submit-tool" data-role="normal">Find & Replace</button>
+                </div>
+                <div class="tof-leaderboard-affiliate hide">
+                    <div class="tof-affiliate horizontal">
+                        <div class="tof-affiliate-wrapper">
+                            <!-- <a href="https://bit.ly/tof-c-ext"> -->
+                            <div class="tof-affiliate-branding">
+                                <div class="tof-affiliate-branding-logo">
+                                    <img src="/images/json-error.png">
+                                </div>
+                                <div class="tof-affiliate-branding-name"></div>
+                            </div>
+                            <div class="tof-affiliate-content">
+                                <div class="tof-affiliate-title">Both JSON are identical.</div>
+                                <div class="tof-affiliate-des">The above given JSON both following the same structure.</div>
+                            </div>
+                            <!-- </a> -->
+                        </div>
+                    </div>
+                </div>
+                <div class="tof-tool-input-area json_formated_output hide">
+                    <div class="tof-output-content-option json_oupt_hdng">
+                        <div class="tof-tool-main-result-heading">Formatted JSON</div>
+                        <button id="copyResult" class="inline-flex">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="15" viewBox="0 -960 960 960" width="15">
+                                <path d="M180-81q-24 0-42-18t-18-42v-603h60v603h474v60H180Zm120-120q-24 0-42-18t-18-42v-560q0-24 18-42t42-18h440q24 0 42 18t18 42v560q0 24-18 42t-42 18H300Z"></path>
+                            </svg>
+                            <span>Copy</span>
+                        </button>
+                    </div>
+                    <div class="f">
+                        <textarea id="tof-user-output" data-role="normal"></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="tof-tool-list-wrapper footer-section">
+                <div class="left-sec"> © 2023 JSONEase. All Rights Reserved. </div>
+                <div class="author"> Made with ❤️ by <a href="https://instagram.com/shitheeshh">Shitheesh</a>
+                </div>
+            </div>
+        </div>
+    </body>
+    <script type="text/javascript" src="/core.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $(document).keydown(function(e) {
+                // Check if the user pressed Ctrl (key code 17) and B (key code 66)
+                if (e.ctrlKey && e.keyCode == 66) {
+                    let el = $('#tof-user-input');
+                    let json = el.val();
+                    if (!json) {
+                        // JSON is empty, so we can paste the random json and trigger click
+                        let random_json = generateRandomJSON();
+                        el.val(random_json).trigger('click');
+                        $('#searchString').val('order_id');
+                        $('#replaceWith').val('ORDER_ID');
+                    }
+                }
+            });
+            $(document).on('click','.tof-find-option button', function(){
+                $(this).siblings('button').removeClass('selected');
+                $(this).addClass('selected');
+            })
+            $(document).on('click', '#submit-tool', function() {
+                let json = $('#tof-user-input').val();
+                let check = checkJSON(json);
+                $('.json_formated_output').addClass('hide');
+                let search_type = $('.tof-find-option').find('button.selected').data('type');
+                let find_value = $('#searchString').val();
+                let update_value = $('#replaceWith').val();
+                let replace_index = $('#replace-index').is(':checked');
+                let replace_value = $('#replace-value').is(':checked');
+                if (check == 'invalid' || check == 'empty') {
+                    show_alert('error', `JSON is ${check} !`, `The JSON is you have entered is ${check}, please update and try again.`);
+                } else if(!find_value){
+                    show_alert('error', `Search term is empty !`, `You haven't entered serach term, please update and try again.`);
+                    return false;
+                }else if(!replace_index && !replace_value){
+                    show_alert('error', `Replace Condition is empty !`, `You should have atleast check one of the replace index or value.`);
+                    return false;
+                }else{
+                    let replaced = findAndReplace(JSON.parse(json),{
+                        type : search_type,
+                        find : find_value,
+                        replace : update_value,
+                        index : replace_index,
+                        value : replace_value
+                    });
+                    let cont = $('.json_formated_output')[0];
+                    $(cont).removeClass('hide');
+                    let formatted = JSON.stringify(replaced, null, "\t");
+                    $("#tof-user-output").val(formatted);
+                    let pos = $(cont).offset().top - 20;
+                    $('html, body').animate({
+                        scrollTop: pos
+                    }, 1000);
+                }
+            });
+        });
+        function findAndReplace(json, options) {
+          const { type, find, replace, index, value } = options;
+
+          function processObject(obj) {
+            for (const key in obj) {
+              if (obj.hasOwnProperty(key)) {
+                const val = obj[key];
+                if (typeof val === 'object') {
+                  processObject(val);
+                } else {
+                  if (index && type === 'regex') {
+                    const regex = new RegExp(find, 'g');
+                    if (key.match(regex)) {
+                      obj[key] = key.replace(regex, replace);
+                    }
+                  } else if (index && type === 'string') {
+                    const keyStr = String(key); // Convert key to string for matching
+                    if (keyStr.includes(find)) {
+                      const newKey = keyStr.replace(find, replace);
+                      obj[newKey] = val;
+                      delete obj[key];
+                    }
+                  }
+                  if (value && type === 'regex') {
+                    const regex = new RegExp(find, 'g');
+                    if (val.match(regex)) {
+                      obj[key] = val.replace(regex, replace);
+                    }
+                  } else if (value && type === 'string') {
+                    const valStr = String(val); // Convert value to string for matching
+                    if (valStr.includes(find)) {
+                      obj[key] = valStr.replace(find, replace);
+                    }
+                  }
+                }
+              }
+            }
+          }
+
+          if (type !== 'regex' && type !== 'string') {
+            throw new Error('Invalid search type. Use "regex" or "string".');
+          }
+
+          processObject(json);
+          return json;
+        }
+    </script>
+</html>

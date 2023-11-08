@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html lang="en" translate="no">
     <head>
-        <title>JSON to CSV from JSONEase ❤️</title>
+        <title>JSON Formatter from JSONEase ❤️</title>
         <meta name="title" content="JSONEase - Manage JSON Better">
         <meta http-equiv="content-type" contexnt="text/html; charset=UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="google" content="notranslate" />
-        <link rel="apple-touch-icon" sizes="180x180" href="images/logo.png">
-        <link rel="icon" type="image/png" sizes="32x32" href="images/logo.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="images/logo.png">
-        <link rel="shortcut icon" href="images/logo.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="/images/logo.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/images/logo.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/images/logo.png">
+        <link rel="shortcut icon" href="/images/logo.png">
         <meta name="msapplication-TileColor" content="#2d89ef">
         <meta name="theme-color" content="#ffffff">
         <meta property="og:type" content="website" />
-        <link rel="stylesheet" type="text/css" href="style.css">
+        <link rel="stylesheet" type="text/css" href="/style.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -28,7 +28,7 @@
                 <a href="/">
                     <div class="tof-navbar-logo">
                         <div class="tof-navbar-logo-image inline">
-                            <img width="35" height="35" src="images/logo.png" alt="JSONEase">
+                            <img width="35" height="35" src="/images/logo.png" alt="JSONEase">
                         </div>
                         <div class="tof-navbar-logo-name">JSONEase</div>
                     </div>
@@ -49,14 +49,14 @@
                 </div>
             </div>
             <div class="tof-tool-wrapper">
-                <div class="tof-tool-heading">JSON to <span class="default-color">CSV Converter</span>
+                <div class="tof-tool-heading">JSON <span class="default-color">Formatter</span>
                 </div>
                 <div class="tof-tool-input-area f">
                     <textarea id="tof-user-input" placeholder="Enter your JSON or press CTRL + B for sample JSON" data-role="normal"></textarea>
                 </div>
                 <br>
                 <div class="tof-tool-setting-wrapper">
-                    <button id="submit-tool" data-role="normal">Download CSV</button>
+                    <button id="submit-tool" data-role="normal">Format JSON</button>
                 </div>
                 <div class="tof-leaderboard-affiliate hide">
                     <div class="tof-affiliate horizontal">
@@ -64,7 +64,7 @@
                             <!-- <a href="https://bit.ly/tof-c-ext"> -->
                                 <div class="tof-affiliate-branding">
                                     <div class="tof-affiliate-branding-logo">
-                                        <img src="images/json-error.png">
+                                        <img src="/images/json-error.png">
                                     </div>
                                     <div class="tof-affiliate-branding-name"></div>
                                 </div>
@@ -74,6 +74,20 @@
                                 </div>
                             <!-- </a> -->
                         </div>
+                    </div>
+                </div>
+                <div class="tof-tool-input-area json_formated_output hide">
+                    <div class="tof-output-content-option json_oupt_hdng">
+                        <div class="tof-tool-main-result-heading">Formatted JSON</div>
+                        <button id="copyResult" class="inline-flex">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="15" viewBox="0 -960 960 960" width="15">
+                              <path d="M180-81q-24 0-42-18t-18-42v-603h60v603h474v60H180Zm120-120q-24 0-42-18t-18-42v-560q0-24 18-42t42-18h440q24 0 42 18t18 42v560q0 24-18 42t-42 18H300Z"></path>
+                            </svg>
+                            <span>Copy</span>
+                        </button>
+                    </div>
+                    <div class="f">
+                        <textarea id="tof-user-output" data-role="normal"></textarea>
                     </div>
                 </div>
             </div>
@@ -94,12 +108,7 @@
                     let json = el.val();
                     if(!json){
                         // JSON is empty, so we can paste the random json and trigger click
-                        let line_item = [];
-                        for(i=1;i<3;i++){
-                            let random_json = JSON.parse(generateRandomJSON());
-                            line_item.push(random_json);
-                        }                        
-                        random_json = JSON.stringify(line_item, null, 4);
+                        let random_json = generateRandomJSON();
                         el.val(random_json).trigger('click');
                     }
                 }
@@ -115,81 +124,16 @@
                         `The JSON is you have entered is ${check}, please update and try again.`
                     );
                 }else{
-                    let json_obj = JSON.parse(json);
-                    if(isArrayOfObjects(json_obj)){
-                        exportCSVFile(
-                            json_obj[0],
-                            json_obj,
-                            'JSONEase-Export-CSV'
-                        );
-                    }else{
-                        show_alert(
-                            'error',
-                            `JSON is not Exportable !`,
-                            `The JSON you have entered is not an array of objects ( Line Items )`,
-                            true
-                        );
-                    }                    
+                    let cont = $('.json_formated_output')[0];
+                    $(cont).removeClass('hide');
+                    let formatted = JSON.stringify(JSON.parse(json), null, "\t");
+                    $("#tof-user-output").val(formatted);
+                    let pos = $(cont).offset().top - 20;
+                    $('html, body').animate({
+                      scrollTop: pos
+                    }, 1000);
                 }
             });
         });
-        function convertToCSV(objArray) {
-            var array = typeof objArray != 'object' ? JSON.parse(objArray) : objArray;
-            var str = '';
-
-            for (var i = 0; i < array.length; i++) {
-                var line = '';
-                for (var index in array[i]) {
-                    if (line != '') line += ','
-                    let curr_value = array[i][index];
-                    if(
-                        Array.isArray(curr_value) || 
-                        (typeof curr_value === "object")
-                    ){
-                        line += curr_value;
-                    }else {
-                        line += curr_value;
-                    }
-                }
-                str += line + '\r\n';
-            }
-            return str;
-        }
-        function exportCSVFile(headers, items, fileTitle) {
-            if (headers) {
-                items.unshift(headers);
-            }
-
-            // Convert Object to JSON
-            var jsonObject = JSON.stringify(items);
-
-            var csv = convertToCSV(jsonObject);
-
-            var exportedFilenmae = fileTitle + '.csv' || 'export.csv';
-
-            var blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
-            if (navigator.msSaveBlob) { // IE 10+
-                navigator.msSaveBlob(blob, exportedFilenmae);
-            } else {
-                var link = document.createElement("a");
-                if (link.download !== undefined) { // feature detection
-                    // Browsers that support HTML5 download attribute
-                    var url = URL.createObjectURL(blob);
-                    link.setAttribute("href", url);
-                    link.setAttribute("download", exportedFilenmae);
-                    link.style.visibility = 'hidden';
-                    document.body.appendChild(link);
-                    link.click();
-                    document.body.removeChild(link);
-                }
-            }
-        }
-        function isArrayOfObjects(variable) {
-            if (Array.isArray(variable)) {
-                return variable.every(item => typeof item === 'object' && item !== null);
-            }
-            return false;
-        }
-
     </script>
 </html>

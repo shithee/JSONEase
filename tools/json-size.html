@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html lang="en" translate="no">
     <head>
-        <title>JSON Validator from JSONEase ❤️</title>
+        <title>JSON Size Checker from JSONEase ❤️</title>
         <meta name="title" content="JSONEase - Manage JSON Better">
         <meta http-equiv="content-type" contexnt="text/html; charset=UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="google" content="notranslate" />
-        <link rel="apple-touch-icon" sizes="180x180" href="images/logo.png">
-        <link rel="icon" type="image/png" sizes="32x32" href="images/logo.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="images/logo.png">
-        <link rel="shortcut icon" href="images/logo.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="/images/logo.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/images/logo.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/images/logo.png">
+        <link rel="shortcut icon" href="/images/logo.png">
         <meta name="msapplication-TileColor" content="#2d89ef">
         <meta name="theme-color" content="#ffffff">
         <meta property="og:type" content="website" />
-        <link rel="stylesheet" type="text/css" href="style.css">
+        <link rel="stylesheet" type="text/css" href="/style.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -28,7 +28,7 @@
                 <a href="/">
                     <div class="tof-navbar-logo">
                         <div class="tof-navbar-logo-image inline">
-                            <img width="35" height="35" src="images/logo.png" alt="JSONEase">
+                            <img width="35" height="35" src="/images/logo.png" alt="JSONEase">
                         </div>
                         <div class="tof-navbar-logo-name">JSONEase</div>
                     </div>
@@ -49,14 +49,14 @@
                 </div>
             </div>
             <div class="tof-tool-wrapper">
-                <div class="tof-tool-heading">JSON <span class="default-color">Validator</span>
+                <div class="tof-tool-heading">JSON <span class="default-color">Size Checker</span>
                 </div>
                 <div class="tof-tool-input-area f">
                     <textarea id="tof-user-input" placeholder="Enter your JSON or press CTRL + B for sample JSON" data-role="normal"></textarea>
                 </div>
                 <br>
                 <div class="tof-tool-setting-wrapper">
-                    <button id="submit-tool" data-role="normal">Validate JSON</button>
+                    <button id="submit-tool" data-role="normal">Check Size</button>
                 </div>
                 <div class="tof-leaderboard-affiliate hide">
                     <div class="tof-affiliate horizontal">
@@ -64,7 +64,7 @@
                             <!-- <a href="https://bit.ly/tof-c-ext"> -->
                                 <div class="tof-affiliate-branding">
                                     <div class="tof-affiliate-branding-logo">
-                                        <img src="images/json-error.png">
+                                        <img src="/images/json-error.png">
                                     </div>
                                     <div class="tof-affiliate-branding-name"></div>
                                 </div>
@@ -122,18 +122,29 @@
                     show_alert(
                         'error',
                         `JSON is ${check} !`,
-                        `The JSON is you have entered is ${check}, please update and try again.`,
-                        true
+                        `The JSON is you have entered is ${check}, please update and try again.`
                     );
                 }else{
+                    let response = calculateSize(json);
                     show_alert(
                         'success',
-                        `JSON is valid !`,
-                        `The JSON you have entered adheres to JSON standards.`,
+                        `JSON Size is ${response[0]} !`,
+                        `The JSON is you have entered contains ${response[1]} bytes of data.`,
                         true
                     );
                 }
             });
         });
+        function calculateSize(jsonString) {
+            const bytes = new TextEncoder().encode(jsonString).length;
+            if (bytes > 1048576) {
+                const megabytes = bytes / 1048576;
+                return [`${megabytes.toFixed(2)} MB`,bytes];
+            } else {
+                const kilobytes = bytes / 1024;
+                return [`${kilobytes.toFixed(2)} KB`,bytes];
+            }
+        }
+
     </script>
 </html>
