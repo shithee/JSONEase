@@ -3913,3 +3913,25 @@ input.picky_attr_search{
 }
 .fcol{flex-direction: column;}
 .cmpre textarea{ width: auto; }
+.help.tof-tool-wrapper{
+	color: var(--tof-black-color-3);
+	max-width: 900px;
+}
+.help a,.help h1{ color: var(--themeColor); }
+.help p{ line-height: 1.7; }
+.help h2{ margin-top: 40px; }
+.help li{ margin-bottom:10px; }
+.help_icon{
+	position: fixed;
+    bottom: 35px;
+    right: 35px;
+}
+.help_icon svg{
+    width: 36px;
+    height: 36px;
+    color: red;
+    fill: var(--tof-category-popular-header-categ-border);
+}
+.help_icon:hover svg{
+	fill: var(--themeColor);
+}

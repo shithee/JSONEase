@@ -1,182 +1,171 @@
 <!DOCTYPE html>
 <html lang="en" translate="no">
-    <head>
-        <title>Compare JSON from JSONEase ❤️</title>
-        <meta name="title" content="JSONEase - Manage JSON Better">
-        <meta http-equiv="content-type" contexnt="text/html; charset=UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="google" content="notranslate" />
-        <link rel="apple-touch-icon" sizes="180x180" href="/images/logo.png">
-        <link rel="icon" type="image/png" sizes="32x32" href="/images/logo.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/images/logo.png">
-        <link rel="shortcut icon" href="/images/logo.png">
-        <meta name="msapplication-TileColor" content="#2d89ef">
-        <meta name="theme-color" content="#ffffff">
-        <meta property="og:type" content="website" />
-        <link rel="stylesheet" type="text/css" href="/style.css">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css2?family=Alegreya:wght@400;500;600&display=swap" rel="stylesheet">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    </head>
-    <body data-theme="dark">
-        <div class="tof-content-wrapper">
-            <div class="tof-site-loader" style="display:none;"></div>
-            <div class="tof-toolpit left" data-text></div>
-            <div class="tof-navbar">
-                <a href="/">
-                    <div class="tof-navbar-logo">
-                        <div class="tof-navbar-logo-image inline">
-                            <img width="35" height="35" src="/images/logo.png" alt="JSONEase">
-                        </div>
-                        <div class="tof-navbar-logo-name">JSONEase</div>
-                    </div>
-                </a>
-                <div class="tof-navbar-interaction">
-                    <div class="tof-navbar-lists">
-                        <li>
-                            <a href="https://github.com/shithee/JSONEase" target="_blank">
-                                <button class="tof-desk-navlist-donate">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
-                                    </svg>
-                                    <span>Github</span>
-                                </button>
-                            </a>
-                        </li>
-                    </div>
-                </div>
+  <head>
+    <title>Compare JSON from JSONEase ❤️</title>
+    <meta name="title" content="JSONEase - Manage JSON Better">
+    <meta http-equiv="content-type" contexnt="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="google" content="notranslate" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/logo.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/logo.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/logo.png">
+    <link rel="shortcut icon" href="/images/logo.png">
+    <meta name="msapplication-TileColor" content="#2d89ef">
+    <meta name="theme-color" content="#ffffff">
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="JSONEase" />
+    <meta property="og:title" content="JSON Viewer from JSONEase ❤️">
+    <meta property="og:description" content="The complete toolkit for JSON Management.">
+    <meta property="og:url" content="https://jsonease.netlify.app/">
+    <meta property="og:image" content="https://jsonease.netlify.app/images/preview.png">
+    <link rel="stylesheet" type="text/css" href="/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Alegreya:wght@400;500;600&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  </head>
+  <body data-theme="dark">
+    <div class="tof-content-wrapper">
+      <div class="tof-site-loader" style="display:none;"></div>
+      <div class="tof-toolpit left" data-text></div>
+      <div class="tof-navbar">
+        <a href="/">
+          <div class="tof-navbar-logo">
+            <div class="tof-navbar-logo-image inline">
+              <img width="35" height="35" src="/images/logo.png" alt="JSONEase">
             </div>
-            <div class="tof-tool-wrapper">
-                <div class="tof-tool-heading">
-                    <span class="default-color">Compare</span> JSON
-                </div>
-                <div class="tof-tool-content">
-                    <div class="tof-tool-user-input cmpre f fcol">
-                        <label class="tof-input-label">JSON 1 ( <b class="sourceCurrency">Source</b>) </label>
-                        <textarea id="json1" placeholder="Enter your JSON or press CTRL + B for sample JSON" data-role="normal" style="height: 274px;"></textarea>
-                    </div>
-                    <div class="tof-tool-output">
-                        <div class="tof-tool-main-result cmpre f fcol">
-                            <div class="tof-tool-main-result-heading">JSON 2 ( <b class="sourceCurrency">Changed JSON</b>) </div>
-                            <textarea id="json2" placeholder="Enter your JSON or press CTRL + B for sample JSON" data-role="normal" style="height: 274px;"></textarea>
-                        </div>
-                    </div>
-                </div>
-                <br>
-                <div class="tof-input-field">
-                    <input type="checkbox" id="compare-value" checked>
-                    <label class="checkbox" for="replace-index">Compare only JSON Structure</label>
-                </div>
-                <div class="compare-json">
-                    <button id="submit-tool" class="generate-color-btn" data-role="normal">Compare JSON</button>
-                </div>
-                <br>
-                <div class="tof-leaderboard-affiliate hide">
-                    <div class="tof-affiliate horizontal">
-                        <div class="tof-affiliate-wrapper">
-                            <!-- <a href="https://bit.ly/tof-c-ext"> -->
-                            <div class="tof-affiliate-branding">
-                                <div class="tof-affiliate-branding-logo">
-                                    <img src="/images/json-success.png">
-                                </div>
-                                <div class="tof-affiliate-branding-name"></div>
-                            </div>
-                            <div class="tof-affiliate-content">
-                                <div class="tof-affiliate-title">Both JSON are identical.</div>
-                                <div class="tof-affiliate-des">The above given JSON both following the same structure.</div>
-                            </div>
-                            <!-- </a> -->
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="tof-tool-list-wrapper footer-section">
-                <div class="left-sec"> © 2023 JSONEase. All Rights Reserved. </div>
-                <div class="author"> Made with ❤️ by <a href="https://instagram.com/shitheeshh">Shitheesh</a>
-                </div>
-            </div>
+            <div class="tof-navbar-logo-name">JSONEase</div>
+          </div>
+        </a>
+        <div class="tof-navbar-interaction">
+          <div class="tof-navbar-lists">
+            <li>
+              <a href="https://github.com/shithee/JSONEase" target="_blank">
+                <button class="tof-desk-navlist-donate">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                  </svg>
+                  <span>Github</span>
+                </button>
+              </a>
+            </li>
+          </div>
         </div>
-    </body>
-    <script type="text/javascript" src="/core.js"></script>
-    <script type="text/javascript">
-        $(document).ready(function() {
-            $(document).keydown(function(e) {
-                // Check if the user pressed Ctrl (key code 17) and B (key code 66)
-                if (e.ctrlKey && e.keyCode == 66) {
-                    let el = $('#json1');
-                    let json = el.val();
-                    if (!json) {
-                        // JSON is empty, so we can paste the random json and trigger click
-                        let random_json = generateRandomJSON();
-                        random_json = JSON.stringify(JSON.parse(random_json), null, 2);
-                        el.val(random_json);
-                        random_json = JSON.stringify(JSON.parse(generateRandomJSON()), null, 2);
-                        $('#json2').val(random_json);
-                    }
-                }
-            });
-            $(document).on('click', '#submit-tool', function() {
-                let json1 = $('#json1').val();
-                let check1 = checkJSON(json1);
-                $('.json_formated_output').addClass('hide');
-                let json2 = $('#json2').val();
-                let check2 = checkJSON(json2);
-                if (check1 == 'invalid' || check1 == 'empty') {
-                    show_alert('error', `JSON 1 is ${check1} !`, `The JSON is you have entered is ${check1}, please update and try again.`);
-                } else if (check2 == 'invalid' || check2 == 'empty') {
-                    show_alert('error', `JSON 2 is ${check2} !`, `The JSON is you have entered is ${check2}, please update and try again.`);
-                } else {
-                    let check_structure_only = $('#compare-value').is(':checked');
-                    let status = compareJSON(json1, json2, check_structure_only);
-                    if (!status) {
-                        show_alert('error', `Both JSON are non identical !`, `The JSON not matching based on the configuration you have set.`, true);
-                    } else {
-                        show_alert('success', `Both JSON are identical !`, `The JSON is matching based on the configuration you have set for comparison.`, true);
-                    }
-                }
-            });
-        });
-
-        function compareJSON(json1, json2, check_structure_only) {
-            // Function to recursively compare JSON objects
-            function deepCompare(obj1, obj2) {
-                if (typeof obj1 !== typeof obj2) return false;
-                if (typeof obj1 === 'object') {
-                    if (Array.isArray(obj1) !== Array.isArray(obj2)) return false;
-                    if (Array.isArray(obj1)) {
-                        if (obj1.length !== obj2.length) return false;
-                        if (check_structure_only) {
-                            for (let i = 0; i < obj1.length; i++) {
-                                if (!deepCompare({}, {})) return false;
-                            }
-                        } else {
-                            for (let i = 0; i < obj1.length; i++) {
-                                if (!deepCompare(obj1[i], obj2[i])) return false;
-                            }
-                        }
-                    } else {
-                        const keys1 = Object.keys(obj1);
-                        const keys2 = Object.keys(obj2);
-                        if (keys1.length !== keys2.length) return false;
-                        if (check_structure_only) {
-                            for (const key of keys1) {
-                                if (!deepCompare({}, {})) return false;
-                            }
-                        } else {
-                            for (const key of keys1) {
-                                if (!deepCompare(obj1[key], obj2[key])) return false;
-                            }
-                        }
-                    }
-                } else {
-                    if (check_structure_only) return true;
-                    return obj1 === obj2;
-                }
-                return true;
-            }
-            return deepCompare(json1, json2);
+      </div>
+      <div class="tof-tool-wrapper">
+        <div class="tof-tool-heading">
+          <span class="default-color">Compare</span> JSON
+        </div>
+        <div class="tof-tool-content">
+          <div class="tof-tool-user-input cmpre f fcol">
+            <label class="tof-input-label">JSON 1 ( <b class="sourceCurrency">Source</b>) </label>
+            <textarea id="json1" placeholder="Enter your JSON or press CTRL + B for sample JSON" data-role="normal" style="height: 274px;"></textarea>
+          </div>
+          <div class="tof-tool-output">
+            <div class="tof-tool-main-result cmpre f fcol">
+              <div class="tof-tool-main-result-heading">JSON 2 ( <b class="sourceCurrency">Changed JSON</b>) </div>
+              <textarea id="json2" placeholder="Enter your JSON or press CTRL + B for sample JSON" data-role="normal" style="height: 274px;"></textarea>
+            </div>
+          </div>
+        </div>
+        <br>
+        <div class="tof-input-field">
+          <input type="checkbox" id="compare-value" checked>
+          <label class="checkbox" for="replace-index">Compare only JSON Structure</label>
+        </div>
+        <div class="compare-json">
+          <button id="submit-tool" class="generate-color-btn" data-role="normal">Compare JSON</button>
+        </div>
+        <br>
+        <div class="tof-leaderboard-affiliate hide">
+          <div class="tof-affiliate horizontal">
+            <div class="tof-affiliate-wrapper">
+              <!-- <a href="https://bit.ly/tof-c-ext"> -->
+              <div class="tof-affiliate-branding">
+                <div class="tof-affiliate-branding-logo">
+                  <img src="/images/json-success.png">
+                </div>
+                <div class="tof-affiliate-branding-name"></div>
+              </div>
+              <div class="tof-affiliate-content">
+                <div class="tof-affiliate-title">Both JSON are identical.</div>
+                <div class="tof-affiliate-des">The above given JSON both following the same structure.</div>
+              </div>
+              <!-- </a> -->
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="tof-tool-list-wrapper footer-section">
+        <div class="left-sec"> © 2023 JSONEase. All Rights Reserved. </div>
+        <div class="author"> Made with ❤️ by <a href="https://instagram.com/shitheeshh">Shitheesh</a>
+        </div>
+      </div>
+    </div>
+    <a class="help_icon" href="/help.html">
+      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height="800px" width="800px" version="1.1" id="_x32_" viewBox="0 0 512 512" xml:space="preserve">
+        <g>
+          <path class="st0" d="M256,0C114.616,0,0,114.612,0,256s114.616,256,256,256s256-114.612,256-256S397.385,0,256,0z M207.678,378.794   c0-17.612,14.281-31.893,31.893-31.893c17.599,0,31.88,14.281,31.88,31.893c0,17.595-14.281,31.884-31.88,31.884   C221.959,410.678,207.678,396.389,207.678,378.794z M343.625,218.852c-3.596,9.793-8.802,18.289-14.695,25.356   c-11.847,14.148-25.888,22.718-37.442,29.041c-7.719,4.174-14.533,7.389-18.769,9.769c-2.905,1.604-4.479,2.95-5.256,3.826   c-0.768,0.926-1.029,1.306-1.496,2.826c-0.273,1.009-0.558,2.612-0.558,5.091c0,6.868,0,12.512,0,12.512   c0,6.472-5.248,11.728-11.723,11.728h-28.252c-6.475,0-11.732-5.256-11.732-11.728c0,0,0-5.645,0-12.512   c0-6.438,0.752-12.744,2.405-18.777c1.636-6.008,4.215-11.718,7.508-16.694c6.599-10.083,15.542-16.802,23.984-21.48   c7.401-4.074,14.723-7.455,21.516-11.281c6.789-3.793,12.843-7.91,17.302-12.372c2.988-2.975,5.31-6.05,7.087-9.52   c2.335-4.628,3.955-10.067,3.992-18.389c0.012-2.463-0.698-5.702-2.632-9.405c-1.926-3.686-5.066-7.694-9.264-11.29   c-8.45-7.248-20.843-12.545-35.054-12.521c-16.285,0.058-27.186,3.876-35.587,8.62c-8.36,4.776-11.029,9.595-11.029,9.595   c-4.268,3.718-10.603,3.85-15.025,0.314l-21.71-17.397c-2.719-2.173-4.322-5.438-4.396-8.926c-0.063-3.479,1.425-6.81,4.061-9.099   c0,0,6.765-10.43,22.451-19.38c15.62-8.992,36.322-15.488,61.236-15.429c20.215,0,38.839,5.562,54.268,14.661   c15.434,9.148,27.897,21.744,35.851,36.876c5.281,10.074,8.525,21.43,8.533,33.38C349.211,198.042,347.248,209.058,343.625,218.852   z" />
+        </g>
+      </svg>
+    </a>
+  </body>
+  <script type="text/javascript" src="/core.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $(document).keydown(function(e) {
+        // Check if the user pressed Ctrl (key code 17) and B (key code 66)
+        if (e.ctrlKey && e.keyCode == 66) {
+          let el = $('#json1');
+          let json = el.val();
+          if (!json) {
+            // JSON is empty, so we can paste the random json and trigger click
+            let random_json = generateRandomJSON();
+            random_json = JSON.stringify(JSON.parse(random_json), null, 2);
+            el.val(random_json);
+            random_json = JSON.stringify(JSON.parse(generateRandomJSON()), null, 2);
+            $('#json2').val(random_json);
+          }
         }
-    </script>
+      });
+      $(document).on('click', '#submit-tool', function() {
+        let json1 = $('#json1').val();
+        let check1 = checkJSON(json1);
+        $('.json_formated_output').addClass('hide');
+        let json2 = $('#json2').val();
+        let check2 = checkJSON(json2);
+        if (check1 == 'invalid' || check1 == 'empty') {
+          show_alert('error', `JSON 1 is ${check1} !`, `The JSON is you have entered is ${check1}, please update and try again.`);
+        } else if (check2 == 'invalid' || check2 == 'empty') {
+          show_alert('error', `JSON 2 is ${check2} !`, `The JSON is you have entered is ${check2}, please update and try again.`);
+        } else {
+          let check_structure_only = $('#compare-value').is(':checked');
+          let status = compareJSON(json1, json2, check_structure_only);
+          if (!status) {
+            show_alert('error', `Both JSON are non identical !`, `The JSON not matching based on the configuration you have set.`, true);
+          } else {
+            show_alert('success', `Both JSON are identical !`, `The JSON is matching based on the configuration you have set for comparison.`, true);
+          }
+        }
+      });
+    });
+    const compareJSON = (json1, json2, checkStructure = false) => {
+      if (Object.prototype.toString.call(json1) === Object.prototype.toString.call(json2)) {
+        if (checkStructure && (Object.prototype.toString.call(json1) === '[object Object]' || Object.prototype.toString.call(json1) === '[object Array]')) {
+          return true;
+        }
+        if (Object.prototype.toString.call(json1) === '[object Object]' || Object.prototype.toString.call(json1) === '[object Array]') {
+          if (Object.keys(json1).length !== Object.keys(json2).length) {
+            return false;
+          }
+          return (Object.keys(json1).every(function(key) {
+            return compareJSON(json1[key], json2[key], checkStructure);
+          }));
+        }
+        return (json1 === json2);
+      }
+      return false;
+    }
+  </script>
 </html>
